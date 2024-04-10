@@ -11,9 +11,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MixinMinecraft {
 
     @Shadow private int rightClickDelayTimer;
-
+    @Shadow private int leftClickDelayTimer;
     @Inject(method = "runTick", at = @At("HEAD"))
     private void rightClickMouse(final CallbackInfo ci) {
         rightClickDelayTimer = 0;
+        leftClickDelayTimer = 0;
     }
 }
